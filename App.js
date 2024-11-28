@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 
 export default function App() {
   return (
@@ -8,6 +8,11 @@ export default function App() {
         Hello world Hello worldHello worldHello worldHello worldHello worldHello
         worldHello worldHello world!
       </Text>
+      <Image
+        fadeDuration={1000}
+        style={{ width: 100, height: 100 }}
+        source={require("./assets/icon.png")}
+      />
     </SafeAreaView>
   );
 }
