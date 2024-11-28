@@ -1,29 +1,29 @@
-// import { StatusBar } from "expo-status-bar";
 import {
   StatusBar,
   StyleSheet,
-  SafeAreaView,  
+  SafeAreaView,
   Platform,
-  Button,
-  Text,
-  Dimensions,
+  View,
 } from "react-native";
 
 export default function App() {
-
-  console.log("dime width: ", "", Dimensions.get('screen').width)
-  console.log("dime height: ", "", Dimensions.get('screen').height)
-
+  // const orientation = useDeviceOrientation();
+  // const dimension = useDimension();
 
   return (
     <SafeAreaView style={styles.container}>
-      <SafeAreaView>
-        <Button
-          title="click me"
-          onPress={() => alert.alert("prompt", "hello")}
-        />
-        <Text> hello wrold </Text>
-      </SafeAreaView>
+      <View
+        style={{
+          flex: 2,
+          backgroundColor: "lightblue",
+
+          // width: "100%",
+          // height: "30%",
+          // height: orientation.landscape ? "%100" : "30%"
+        }}
+      />
+      <View style={{ backgroundColor: "lightblue", flex: 1 }} />
+      <View style={{ backgroundColor: "gold", flex: 1 }} />
     </SafeAreaView>
   );
 }
