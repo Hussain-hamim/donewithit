@@ -2,26 +2,27 @@
 import {
   StatusBar,
   StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  Touchable,
-  TouchableOpacity,
-  TouchableNativeFeedback,
-  Button,
-  Alert,
+  SafeAreaView,  
   Platform,
+  Button,
+  Text,
+  Dimensions,
 } from "react-native";
 
 export default function App() {
+
+  console.log("dime width: ", "", Dimensions.get('screen').width)
+  console.log("dime height: ", "", Dimensions.get('screen').height)
+
+
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView>
         <Button
           title="click me"
-          onPress={() => Alert.alert("prompt", "hello")}
+          onPress={() => alert.alert("prompt", "hello")}
         />
+        <Text> hello wrold </Text>
       </SafeAreaView>
     </SafeAreaView>
   );
