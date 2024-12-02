@@ -1,12 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 
-export const AppForm = ({
-  children,
-  initialValues,
-  onSubmit,
-  validationSchema,
-}) => {
+const AppForm = ({ children, initialValues, onSubmit, validationSchema }) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -17,3 +12,5 @@ export const AppForm = ({
     </Formik>
   );
 };
+
+export default AppForm;
