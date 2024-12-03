@@ -10,6 +10,7 @@ import {
 } from "../components/forms";
 import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import { StatusBar } from "expo-status-bar";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -78,6 +79,7 @@ const categories = [
 function ListingEditScreen() {
   return (
     <Screen style={styles.container}>
+      <StatusBar />
       <Form
         initialValues={{
           title: "",
