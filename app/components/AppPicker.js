@@ -55,7 +55,13 @@ function AppPicker({
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
-          <Button title="Close" onPress={() => setmodalVisible(false)} />
+          <View style={{ marginHorizontal: 130 }}>
+            <Button
+              color="gray"
+              title="Close"
+              onPress={() => setmodalVisible(false)}
+            />
+          </View>
           <FlatList
             data={items}
             renderItem={({ item }) => (
