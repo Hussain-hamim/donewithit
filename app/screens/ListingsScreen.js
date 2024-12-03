@@ -4,6 +4,8 @@ import { FlatList, StyleSheet } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import colors from "../config/colors";
+// eslint-disable-next-line import/namespace
+import { StatusBar } from "expo-status-bar";
 
 const listings = [
   {
@@ -23,6 +25,7 @@ const listings = [
 function ListingsScreen(props) {
   return (
     <Screen style={styles.screen}>
+      <StatusBar style="auto" />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}

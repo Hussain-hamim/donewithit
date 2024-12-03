@@ -10,6 +10,7 @@ import {
 } from "../components/forms";
 import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+// eslint-disable-next-line import/namespace
 import { StatusBar } from "expo-status-bar";
 
 const validationSchema = Yup.object().shape({
@@ -96,7 +97,7 @@ function ListingEditScreen() {
           maxLength={8}
           name="price"
           placeholder="Price"
-          width={120}
+          width={130}
         />
         <Picker
           width="50%"

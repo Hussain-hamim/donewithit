@@ -9,17 +9,27 @@ import ListItemDeleteAction from "../components/ListItemDeleteAction";
 const initialMessages = [
   {
     id: 1,
-    title:
-      "Hell there world Hell there worldHell there worldHell there worldHell there worldHell there worldHell there world",
-    description:
-      "Hell there wssorld Hell there worldHell there worldHell there worldHell there worldHell there worldHell there world",
-    image: require("../assets/mosh.jpg"),
+    title: "nice app",
+    description: "i found this app really useful",
+    image: require("../assets/hamim.png"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/mosh.jpg"),
+    title: "Hello wold",
+    description: "to improve the ui even better",
+    image: require("../assets/hamim.png"),
+  },
+  {
+    id: 3,
+    title: "how can i get this app to next level",
+    description: "to improve the ui even better",
+    image: require("../assets/hamim.png"),
+  },
+  {
+    id: 4,
+    title: "how can i get this app to next level",
+    description: "to improve the ui even better",
+    image: require("../assets/hamim.png"),
   },
 ];
 
@@ -54,9 +64,9 @@ function MessagesScreen(props) {
           setMessages([
             {
               id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/mosh.jpg"),
+              title: "sample data",
+              description: "sample description text",
+              image: require("../assets/hamim.png"),
             },
           ]);
         }}

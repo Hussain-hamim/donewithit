@@ -47,17 +47,19 @@ function AppPicker({
           )}
 
           <MaterialCommunityIcons
+            style={{ paddingLeft: 20 }}
             name="chevron-down"
             size={20}
             color={defaultStyles.colors.medium}
           />
         </View>
       </TouchableWithoutFeedback>
+
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <View style={{ marginHorizontal: 130 }}>
             <Button
-              color="gray"
+              color="tomato"
               title="Close"
               onPress={() => setmodalVisible(false)}
             />

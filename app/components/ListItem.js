@@ -7,10 +7,13 @@ import {
   TouchableHighlight,
 } from "react-native";
 import AppText from "./AppText";
-import Swipeable from "react-native-gesture-handler/Swipeable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
+import {
+  GestureHandlerRootView,
+  Swipeable,
+} from "react-native-gesture-handler";
 
 function ListItem({
   title,
@@ -21,6 +24,7 @@ function ListItem({
   renderRightActions,
 }) {
   return (
+    // <GestureHandlerRootView>
     // <Swipeable renderRightActions={renderRightActions}>
     <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
       <View style={styles.container}>
@@ -45,6 +49,7 @@ function ListItem({
       </View>
     </TouchableHighlight>
     // </Swipeable>
+    // </GestureHandlerRootView>
   );
 }
 

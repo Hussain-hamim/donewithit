@@ -17,6 +17,7 @@ function AppFormPicker({
   return (
     <>
       <AppPicker
+        icon="apps"
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
