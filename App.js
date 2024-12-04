@@ -1,5 +1,12 @@
-import React, { useState } from "react";
-import { View } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  Alert,
+  Button,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -14,6 +21,10 @@ import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
+import * as ImagePicker from "expo-image-picker";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { ImageInput } from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -22,5 +33,23 @@ const categories = [
 ];
 
 export default function App() {
-  return <WelcomeScreen />;
+  const [imageUris, setimageUris] = useState([]);
+
+  const handleAdd = (uri) => {
+    setimageUris([...imageUris, uri]);
+  };
+
+  const handleRemove = (uri) => {
+    setimageUris(imageUris.filter((u) => u !== uri));
+  };
+
+  return (
+    <Screen>
+      <ImageInputList
+        onAddImage={(uri) => handleAdd(uri)}
+        onRemoveImage={(uri) => handleRemove(uri)}
+        imageUris={imageUris}
+      />
+    </Screen>
+  );
 }
