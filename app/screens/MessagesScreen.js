@@ -2,33 +2,24 @@ import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import Screen from "../components/Screen";
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import {
+  ListItem,
+  ListItemDeleteAction,
+  ListItemSeparator,
+} from "../components/lists";
 
 const initialMessages = [
   {
     id: 1,
-    title: "nice app",
-    description: "i found this app really useful",
+    title: "Hussain Hamim",
+    description: "Hey! Is this item still available?",
     image: require("../assets/hamim.png"),
   },
   {
     id: 2,
-    title: "Hello wold",
-    description: "to improve the ui even better",
-    image: require("../assets/hamim.png"),
-  },
-  {
-    id: 3,
-    title: "how can i get this app to next level",
-    description: "to improve the ui even better",
-    image: require("../assets/hamim.png"),
-  },
-  {
-    id: 4,
-    title: "how can i get this app to next level",
-    description: "to improve the ui even better",
+    title: "Hussain Hamim",
+    description:
+      "I'm interested in this item. When will you be able to post it?",
     image: require("../assets/hamim.png"),
   },
 ];
@@ -64,8 +55,8 @@ function MessagesScreen(props) {
           setMessages([
             {
               id: 2,
-              title: "sample data",
-              description: "sample description text",
+              title: "T2",
+              description: "D2",
               image: require("../assets/hamim.png"),
             },
           ]);
