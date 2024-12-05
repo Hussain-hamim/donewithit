@@ -1,12 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {
-  Alert,
-  Button,
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
 
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -26,30 +18,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ImageInput } from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
 
-const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Cameras", value: 3 },
-];
-
 export default function App() {
-  const [imageUris, setimageUris] = useState([]);
-
-  const handleAdd = (uri) => {
-    setimageUris([...imageUris, uri]);
-  };
-
-  const handleRemove = (uri) => {
-    setimageUris(imageUris.filter((u) => u !== uri));
-  };
-
   return (
     <Screen>
-      <ImageInputList
-        onAddImage={(uri) => handleAdd(uri)}
-        onRemoveImage={(uri) => handleRemove(uri)}
-        imageUris={imageUris}
-      />
+      <ListingEditScreen />
     </Screen>
   );
 }
