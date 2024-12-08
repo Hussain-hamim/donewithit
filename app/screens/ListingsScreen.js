@@ -28,13 +28,11 @@ function ListingsScreen({ navigation }) {
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={navigation.navigate("details")}>
-            <Card
-              title={item.title}
-              subTitle={"$" + item.price}
-              image={item.image}
-            />
-          </TouchableOpacity>
+          <Card
+            title={item.title}
+            subTitle={"$" + item.price}
+            image={item.image}
+          />
         )}
       />
     </Screen>
@@ -43,7 +41,7 @@ function ListingsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 20,
+    padding: 8,
     backgroundColor: colors.light,
   },
 });

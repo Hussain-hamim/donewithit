@@ -16,31 +16,31 @@ function ListItem({
   renderRightActions,
 }) {
   return (
-    <GestureHandlerRootView>
-      <Swipeable renderRightActions={renderRightActions}>
-        <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-          <View style={styles.container}>
-            {IconComponent}
-            {image && <Image style={styles.image} source={image} />}
-            <View style={styles.detailsContainer}>
-              <Text style={styles.title} numberOfLines={1}>
-                {title}
-              </Text>
-              {subTitle && (
-                <Text style={styles.subTitle} numberOfLines={2}>
-                  {subTitle}
-                </Text>
-              )}
-            </View>
-            <MaterialCommunityIcons
-              color={colors.medium}
-              name="chevron-right"
-              size={25}
-            />
-          </View>
-        </TouchableHighlight>
-      </Swipeable>
-    </GestureHandlerRootView>
+    // <GestureHandlerRootView>
+    // {/* <Swipeable renderRightActions={renderRightActions}> */}
+    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+      <View style={styles.container}>
+        {IconComponent}
+        {image && <Image style={styles.image} source={image} />}
+        <View style={styles.detailsContainer}>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
+          </Text>
+          {subTitle && (
+            <Text style={styles.subTitle} numberOfLines={2}>
+              {subTitle}
+            </Text>
+          )}
+        </View>
+        <MaterialCommunityIcons
+          color={colors.medium}
+          name="chevron-right"
+          size={25}
+        />
+      </View>
+    </TouchableHighlight>
+    // {/* </Swipeable> */}
+    // {/* </GestureHandlerRootView> */}
   );
 }
 
