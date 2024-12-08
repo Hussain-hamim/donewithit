@@ -17,7 +17,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import AuthNavigator from "./app/navigation/AuthNavigator";
+// eslint-disable-next-line import/namespace
 import { StatusBar } from "expo-status-bar";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 const Tabs = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -68,7 +70,7 @@ const TabNavigation = () => {
 export default function App() {
   return (
     // <Screen>
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <StatusBar />
       <AuthNavigator />
     </NavigationContainer>
