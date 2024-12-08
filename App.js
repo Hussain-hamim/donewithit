@@ -13,11 +13,65 @@ import RegisterScreen from "./app/screens/RegisterScreen";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ImageInputList from "./app/components/ImageInputList";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import { StatusBar } from "expo-status-bar";
+
+const Tabs = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const StackNavigation = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="home" component={ListingScreen} />
+      <Stack.Screen name="details" component={ListingDetailsScreen} />
+    </Stack.Navigator>
+  );
+};
+
+const TabNavigation = () => {
+  return (
+    <Tabs.Navigator>
+      <Tabs.Screen
+        name="Home"
+        component={StackNavigation}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Listing Edit"
+        component={ListingEditScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="plus" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Account"
+        component={AccountScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tabs.Navigator>
+  );
+};
 
 export default function App() {
   return (
-    <Screen>
-      <ListingEditScreen />
-    </Screen>
+    // <Screen>
+    <NavigationContainer>
+      <StatusBar />
+      <AuthNavigator />
+    </NavigationContainer>
+    // </Screen>
   );
 }

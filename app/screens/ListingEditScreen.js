@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardAvoidingView, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import {
@@ -12,6 +12,7 @@ import CategoryPickerItem from "../components/CategoryPickerItem";
 import Screen from "../components/Screen";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
+// eslint-disable-next-line import/namespace
 import { StatusBar } from "expo-status-bar";
 
 const validationSchema = Yup.object().shape({
