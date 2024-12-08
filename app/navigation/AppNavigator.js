@@ -6,6 +6,7 @@ import React from "react";
 import FeedNavigator from "./FeedNavigator";
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
+import routes from "../navigation/routes";
 
 const Tabs = createBottomTabNavigator();
 
@@ -29,7 +30,7 @@ const AppNavigator = () => {
           headerShown: false,
           tabBarButton: () => (
             <NewListingButton
-              onPress={() => navigation.navigate("ListingEdit")}
+              onPress={() => navigation.navigate(routes.LISTING_EDIT)}
             />
           ),
           tabBarIcon: ({ color, size }) => (
