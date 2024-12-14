@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -14,6 +14,8 @@ import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
 // eslint-disable-next-line import/namespace
 import { StatusBar } from "expo-status-bar";
+import listingApi from "../api/listings";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -82,11 +84,36 @@ const categories = [
 
 function ListingEditScreen() {
   const location = useLocation();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgess] = useState(0);
+
+  const handleSubmit = async (listing, { resetForm }) => {
+    setUploadVisible(true);
+    setProgess(0);
+    const result = await listingApi.addListing(
+      { ...listing, location },
+      (progress) => setProgess(progress)
+    );
+
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Could not save listing the listing.");
+    } else {
+      alert("Success");
+    }
+
+    resetForm();
+  };
 
   return (
     <Screen style={styles.container}>
       <StatusBar />
       <ScrollView>
+        <UploadScreen
+          progress={progress}
+          uploadVisible={uploadVisible}
+          onDone={() => setUploadVisible(false)}
+        />
         <Form
           initialValues={{
             title: "",
@@ -95,7 +122,7 @@ function ListingEditScreen() {
             category: null,
             images: [],
           }}
-          onSubmit={(values) => console.log(location)}
+          onSubmit={handleSubmit}
           validationSchema={validationSchema}
         >
           <FormImagePicker name="images" />

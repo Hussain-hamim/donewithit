@@ -20,7 +20,6 @@ function NewListingButton({ onPress }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     backgroundColor: colors.primary,
     borderColor: colors.white,
     borderRadius: 40,
@@ -28,6 +27,7 @@ const styles = StyleSheet.create({
     bottom: 20,
     height: 80,
     justifyContent: "center",
+    alignItems: "center",
     width: 80,
     right: -20,
   },

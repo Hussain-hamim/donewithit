@@ -23,18 +23,6 @@ import { StatusBar } from "expo-status-bar";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
-const Tabs = createBottomTabNavigator();
-const Stack = createStackNavigator();
-
-const StackNavigation = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="home" component={ListingScreen} />
-      <Stack.Screen name="details" component={ListingDetailsScreen} />
-    </Stack.Navigator>
-  );
-};
-
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>

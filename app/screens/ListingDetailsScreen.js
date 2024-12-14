@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   },
   userContainer: {
     marginVertical: 40,
+    marginHorizontal: -12,
   },
 });
 
