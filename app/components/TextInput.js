@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    padding: 15,
+    padding: 8,
     marginVertical: 10,
   },
   icon: {

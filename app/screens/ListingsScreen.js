@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
+import ActivityIndicator from "../components/ActivityIndicator";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import colors from "../config/colors";
@@ -9,15 +10,13 @@ import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 import AppText from "../components/Text";
 import useApi from "../hooks/useApi";
-import ActivityIndicator from "../components/ActivityIndicator";
-import data from "../api/data";
 
 function ListingsScreen({ navigation }) {
   const getListingsApi = useApi(listingsApi.getListings);
 
   useEffect(() => {
     getListingsApi.request();
-  }, [getListingsApi]);
+  }, []);
 
   return (
     <Screen style={styles.screen}>
@@ -46,7 +45,7 @@ function ListingsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 20,
+    padding: 6,
     backgroundColor: colors.light,
   },
 });

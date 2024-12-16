@@ -26,17 +26,12 @@ import NetInfo from "@react-native-community/netinfo";
 import { Text, View } from "react-native";
 
 export default function App() {
-  NetInfo.fetch().then((netinfo) => console.log(netinfo));
+  // NetInfo.fetch().then((netinfo) => console.log(netinfo));
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Hello world</Text>
-    </View>
+    <NavigationContainer theme={navigationTheme}>
+      <StatusBar />
+      <AppNavigator />
+    </NavigationContainer>
   );
-  //  (
-  //   <NavigationContainer theme={navigationTheme}>
-  //     <StatusBar />
-  //     <AppNavigator />
-  //   </NavigationContainer>
-  // );
 }

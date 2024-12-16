@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import {
@@ -11,13 +11,9 @@ import {
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import Screen from "../components/Screen";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import listingsApi from "../api/listings";
 import useLocation from "../hooks/useLocation";
-// eslint-disable-next-line import/namespace
-import { StatusBar } from "expo-status-bar";
-import listingApi from "../api/listings";
 import UploadScreen from "./UploadScreen";
-
-import data from "../api/data";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -87,84 +83,77 @@ const categories = [
 function ListingEditScreen() {
   const location = useLocation();
   const [uploadVisible, setUploadVisible] = useState(false);
-  const [progress, setProgess] = useState(0);
-
-  const [data, setdata] = useState([]);
-
-  console.log(data);
+  const [progress, setProgress] = useState(0);
+  console.log(progress);
 
   const handleSubmit = async (listing, { resetForm }) => {
+    setProgress(0);
     setUploadVisible(true);
-    setProgess(0);
-    const result = await listingApi.addListing(
+    const result = await listingsApi.addListing(
       { ...listing, location },
-      (progress) => setProgess(progress)
+      (progress) => setProgress(progress)
     );
 
-    if (!result.ok) {
+    if (!result) {
       setUploadVisible(false);
-      return alert("Could not save listing the listing.");
+      return alert("Could not save the listing");
     } else {
-      alert("Success");
+      // alert("Success");
+      resetForm();
     }
-
-    resetForm();
   };
 
   return (
     <Screen style={styles.container}>
-      <StatusBar />
-      <ScrollView>
-        <UploadScreen
-          progress={progress}
-          uploadVisible={uploadVisible}
-          onDone={() => setUploadVisible(false)}
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
+      <Form
+        initialValues={{
+          title: "",
+          price: "",
+          description: "",
+          category: null,
+          images: [],
+        }}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        <FormImagePicker name="images" />
+        <FormField maxLength={255} name="title" placeholder="Title" />
+        <FormField
+          keyboardType="numeric"
+          maxLength={8}
+          name="price"
+          placeholder="Price"
+          width={120}
         />
-        <Form
-          initialValues={{
-            title: "",
-            price: "",
-            description: "",
-            category: null,
-            images: [],
-          }}
-          onSubmit={(data) => setdata(data)}
-          validationSchema={validationSchema}
-        >
-          <FormImagePicker name="images" />
-          <FormField maxLength={255} name="title" placeholder="Title" />
-          <FormField
-            keyboardType="numeric"
-            maxLength={8}
-            name="price"
-            placeholder="Price"
-            width={120}
-          />
-          <Picker
-            items={categories}
-            name="category"
-            numberOfColumns={3}
-            PickerItemComponent={CategoryPickerItem}
-            placeholder="Category"
-            width="50%"
-          />
-          <FormField
-            maxLength={255}
-            multiline
-            name="description"
-            numberOfLines={3}
-            placeholder="Description"
-          />
-          <SubmitButton title="Post" />
-        </Form>
-      </ScrollView>
+        <Picker
+          items={categories}
+          name="category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+          placeholder="Category"
+          width="50%"
+        />
+        <FormField
+          maxLength={255}
+          multiline
+          name="description"
+          numberOfLines={3}
+          placeholder="Description"
+        />
+        <SubmitButton title="Post" />
+      </Form>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
+    padding: 10,
   },
 });
 export default ListingEditScreen;

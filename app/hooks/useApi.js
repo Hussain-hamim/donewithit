@@ -1,10 +1,12 @@
 import { useState } from "react";
-import data from "../api/data";
+import data1 from "../api/data";
 
 const useApi = (apiFunc) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // console.log(data);
 
   const request = async (...args) => {
     setLoading(true);
