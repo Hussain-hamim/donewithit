@@ -17,6 +17,8 @@ import { StatusBar } from "expo-status-bar";
 import listingApi from "../api/listings";
 import UploadScreen from "./UploadScreen";
 
+import data from "../api/data";
+
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
@@ -87,6 +89,10 @@ function ListingEditScreen() {
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgess] = useState(0);
 
+  const [data, setdata] = useState([]);
+
+  console.log(data);
+
   const handleSubmit = async (listing, { resetForm }) => {
     setUploadVisible(true);
     setProgess(0);
@@ -122,7 +128,7 @@ function ListingEditScreen() {
             category: null,
             images: [],
           }}
-          onSubmit={handleSubmit}
+          onSubmit={(data) => setdata(data)}
           validationSchema={validationSchema}
         >
           <FormImagePicker name="images" />

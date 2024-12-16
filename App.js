@@ -22,12 +22,21 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import { StatusBar } from "expo-status-bar";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import NetInfo from "@react-native-community/netinfo";
+import { Text, View } from "react-native";
 
 export default function App() {
+  NetInfo.fetch().then((netinfo) => console.log(netinfo));
+
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <StatusBar />
-      <AppNavigator />
-    </NavigationContainer>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Hello world</Text>
+    </View>
   );
+  //  (
+  //   <NavigationContainer theme={navigationTheme}>
+  //     <StatusBar />
+  //     <AppNavigator />
+  //   </NavigationContainer>
+  // );
 }
