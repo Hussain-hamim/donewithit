@@ -22,11 +22,26 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import { StatusBar } from "expo-status-bar";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
-import NetInfo from "@react-native-community/netinfo";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import { Text, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
-  // NetInfo.fetch().then((netinfo) => console.log(netinfo));
+  const netInfo = useNetInfo();
+  console.log(netInfo.isInternetReachable);
+
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+      const value = await AsyncStorage.getItem("person");
+      const person = JSON.parse(value);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  demo();
 
   return (
     <NavigationContainer theme={navigationTheme}>
