@@ -5,12 +5,11 @@ const prefix = "cache";
 const expiryInMinutes = 5;
 
 const store = async (key, value) => {
-  const item = {
-    value,
-    timestamp: Date.now(),
-  };
-
   try {
+    const item = {
+      value,
+      timestamp: Date.now(),
+    };
     await AsyncStorage.setItem(prefix + key, JSON.stringify(item));
   } catch (error) {
     console.log(error);
@@ -31,6 +30,7 @@ const get = async (key) => {
     if (!item) return null;
 
     if (isExpired(item)) {
+      // Command Query Separation (CQS)
       await AsyncStorage.removeItem(prefix + key);
       return null;
     }
@@ -41,4 +41,7 @@ const get = async (key) => {
   }
 };
 
-export default { store, get };
+export default {
+  store,
+  get,
+};

@@ -25,28 +25,16 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import { Text, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 export default function App() {
-  const netInfo = useNetInfo();
-  console.log(netInfo.isInternetReachable);
-
-  const demo = async () => {
-    try {
-      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
-      const value = await AsyncStorage.getItem("person");
-      const person = JSON.parse(value);
-      console.log(person);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  demo();
-
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <StatusBar />
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={navigationTheme}>
+        <StatusBar />
+        <AppNavigator />
+      </NavigationContainer>
+    </>
   );
 }
