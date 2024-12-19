@@ -30,7 +30,6 @@ function RegisterScreen() {
   const handleSubmit = async (userInfo) => {
     try {
       const result = await registerApi.request(userInfo);
-      console.log("API response:", result);
 
       if (!result) {
         setError("An unexpected error occurred.");
