@@ -96,10 +96,9 @@ function ListingEditScreen() {
     if (!result.ok) {
       setUploadVisible(false);
       return alert("Could not save the listing");
-    } else {
-      // alert("Success");
-      resetForm();
     }
+
+    resetForm();
   };
 
   return (
