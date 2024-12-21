@@ -27,7 +27,8 @@ const menuItems = [
 ];
 
 function AccountScreen({ navigation }) {
-  const { user, logOut } = useAuth();
+  const { user = { name: "Hussain", email: "hsn@dev.com" }, logOut } =
+    useAuth();
 
   return (
     <Screen style={styles.screen}>

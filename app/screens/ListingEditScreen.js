@@ -99,6 +99,8 @@ function ListingEditScreen() {
     }
 
     resetForm();
+    setUploadVisible(false);
+    alert("Success!");
   };
 
   return (

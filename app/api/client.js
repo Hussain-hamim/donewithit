@@ -4,9 +4,10 @@ import authStorage from "../auth/storage";
 
 const apiClient = create({
   baseURL: "http://192.168.237.143:9000/api",
-  // baseURL: "http://10.0.2.16:9000/api",
-  // baseURL: "http://169.254.58.223:9000/api",
-  // baseURL: "http://localhost:9000/api",
+  headers: {
+    "Content-Type": "multipart/form-data",
+    Accept: "application/json",
+  },
 });
 
 // this is how we can get protected api endpoint
@@ -14,6 +15,16 @@ apiClient.addAsyncRequestTransform(async (request) => {
   const authToken = await authStorage.getToken();
   if (!authToken) return;
   request.headers["x-auth-token"] = authToken;
+});
+
+// Add monitoring for requests and responses
+apiClient.addMonitor((response) => {
+  console.log("API Response:", {
+    url: response.config.url,
+    status: response.status,
+    data: response.data,
+    problem: response.problem,
+  });
 });
 
 const get = apiClient.get;
