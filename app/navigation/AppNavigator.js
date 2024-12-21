@@ -16,6 +16,7 @@ const Tabs = createBottomTabNavigator();
 const AppNavigator = () => {
   const [expoPushToken, setExpoPushToken] = useState("");
 
+  // remote notification:
   const registerForPushNotification = async () => {
     try {
       // const permission = await Permission.askAsync(Permission.NOTIFICATION);
@@ -34,7 +35,25 @@ const AppNavigator = () => {
 
   useEffect(() => {
     registerForPushNotification();
+    Notifications.addNotificationReceivedListener((notification) => {
+      // setNotification(notification);
+      console.log(notification);
+    });
   }, []);
+
+  // local notification:
+  const showNotification = () => {
+    Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Time's up!",
+        body: "Change sides!",
+      },
+      trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+        seconds: 60,
+      },
+    });
+  };
 
   return (
     <Tabs.Navigator>
