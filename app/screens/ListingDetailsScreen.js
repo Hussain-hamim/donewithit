@@ -5,6 +5,7 @@ import colors from "../config/colors";
 import ListItem from "../components/lists/ListItem";
 import Text from "../components/Text";
 import { Image } from "react-native-expo-image-cache";
+import ContactSellerForm from "../components/ContactSellerForm";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
@@ -28,6 +29,7 @@ function ListingDetailsScreen({ route }) {
           />
         </View>
       </View>
+      <ContactSellerForm listing={listing} />
     </View>
   );
 }

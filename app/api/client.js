@@ -1,9 +1,11 @@
 import { create } from "apisauce";
 import cache from "../utility/cache";
 import authStorage from "../auth/storage";
+import settings from "../config/settings";
 
 const apiClient = create({
-  baseURL: "http://192.168.237.143:9000/api",
+  // baseURL: "http://192.168.237.143:9000/api",
+  baseURL: settings.apiUrl,
   headers: {
     "Content-Type": "multipart/form-data",
     Accept: "application/json",
