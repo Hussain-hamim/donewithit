@@ -1,17 +1,27 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import {
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from "react-native";
+import { Image } from "react-native-expo-image-cache";
 
 import colors from "../config/colors";
+import ContactSellerForm from "../components/ContactSellerForm";
 import ListItem from "../components/lists/ListItem";
 import Text from "../components/Text";
-import { Image } from "react-native-expo-image-cache";
-import ContactSellerForm from "../components/ContactSellerForm";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
 
   return (
-    <View>
+    <ScrollView>
+      {/* <KeyboardAvoidingView
+        behavior="position"
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+      > */}
       <Image
         style={styles.image}
         preview={{ uri: listing.images[0].thumbnailUrl }}
@@ -28,9 +38,10 @@ function ListingDetailsScreen({ route }) {
             subTitle="5 Listings"
           />
         </View>
+        <ContactSellerForm listing={listing} />
       </View>
-      <ContactSellerForm listing={listing} />
-    </View>
+      {/* </KeyboardAvoidingView> */}
+    </ScrollView>
   );
 }
 
@@ -54,7 +65,6 @@ const styles = StyleSheet.create({
   },
   userContainer: {
     marginVertical: 40,
-    marginHorizontal: -12,
   },
 });
 
