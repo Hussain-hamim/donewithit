@@ -2,6 +2,7 @@
   "expo": {
     "name": "doneWithIt",
     "slug": "doneWithIt",
+    "scheme": "doneWithIt",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -13,17 +14,26 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hussain.donewithit",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "package": "com.hussain.donewithit",
+        "versionCode": "1.0.0"
       },
       "package": "com.hussainhamim.doneWithIt"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "05122370-ff66-4473-be10-7a91015d11ef"
+      }
     }
   }
 }
