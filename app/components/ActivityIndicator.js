@@ -1,5 +1,5 @@
 import React from "react";
-import LottieView from "lottie-react-native";
+// import LottieView from "lottie-react-native";
 import { ActivityIndicator, View, StyleSheet } from "react-native";
 import colors from "../config/colors";
 
