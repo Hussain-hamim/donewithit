@@ -16,6 +16,7 @@ const data = [
       longitude: -122.4324,
     },
   },
+
   {
     id: 3,
     title: "Gray couch in a great condition",

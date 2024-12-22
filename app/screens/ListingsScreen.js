@@ -27,7 +27,7 @@ function ListingsScreen({ navigation }) {
   };
 
   useEffect(() => {
-    // getListingsApi.request();
+    getListingsApi.request();
   }, []);
 
   return (
