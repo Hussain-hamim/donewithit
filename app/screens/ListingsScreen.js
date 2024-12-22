@@ -10,6 +10,7 @@ import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 import AppText from "../components/Text";
 import useApi from "../hooks/useApi";
+import { Image } from "react-native-expo-image-cache";
 
 function ListingsScreen({ navigation }) {
   const getListingsApi = useApi(listingsApi.getListings);
@@ -19,13 +20,14 @@ function ListingsScreen({ navigation }) {
 
   const handleRefresh = () => {
     setRefresh(true);
+    // eslint-disable-next-line no-undef
     setTimeout(() => {
       setRefresh(false);
     }, 3000);
   };
 
   useEffect(() => {
-    getListingsApi.request();
+    // getListingsApi.request();
   }, []);
 
   return (

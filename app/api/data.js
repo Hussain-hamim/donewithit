@@ -4,8 +4,8 @@ const data = [
     title: "Red jacket",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/jacket1_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/jacket1_thumb.jpg",
+        url: "../assets/jacket1_full.jpg",
+        thumbnailUrl: "../assets/jacket1_thumb.jpg",
       },
     ],
     price: 100,
@@ -21,8 +21,8 @@ const data = [
     title: "Gray couch in a great condition",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/couch2_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/couch2_thumb.jpg",
+        url: "../assets/couch2_full.jpg",
+        thumbnailUrl: "../assets/couch2_thumb.jpg",
       },
     ],
     categoryId: 1,
@@ -40,16 +40,16 @@ const data = [
       "I'm selling my furniture at a discount price. Pick up at Venice. DM me asap.",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/couch1_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/couch1_thumb.jpg",
+        url: "../assets/couch1_full.jpg",
+        thumbnailUrl: "../assets/couch1_thumb.jpg",
       },
       {
-        url: "http://192.168.170.79:9000/assets/couch2_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/couch2_thumb.jpg",
+        url: "../assets/couch2_full.jpg",
+        thumbnailUrl: "../assets/couch2_thumb.jpg",
       },
       {
-        url: "http://192.168.170.79:9000/assets/couch3_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/couch3_thumb.jpg",
+        url: "../assets/couch3_full.jpg",
+        thumbnailUrl: "../assets/couch3_thumb.jpg",
       },
     ],
     price: 1000,
@@ -65,8 +65,8 @@ const data = [
     title: "Designer wear shoes",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/shoes1_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/shoes1_thumb.jpg",
+        url: "../assets/shoes1_full.jpg",
+        thumbnailUrl: "../assets/shoes1_thumb.jpg",
       },
     ],
     categoryId: 5,
@@ -82,8 +82,8 @@ const data = [
     title: "Canon 400D (Great Condition)",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/camera1_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/camera1_thumb.jpg",
+        url: "../assets/camera1_full.jpg",
+        thumbnailUrl: "../assets/camera1_thumb.jpg",
       },
     ],
     price: 300,
@@ -99,8 +99,8 @@ const data = [
     title: "Nikon D850 for sale",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/camera2_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/camera2_thumb.jpg",
+        url: "../assets/camera2_full.jpg",
+        thumbnailUrl: "../assets/camera2_thumb.jpg",
       },
     ],
     price: 350,
@@ -117,8 +117,8 @@ const data = [
     description: "No rips no stains no odors",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/couch3_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/couch3_thumb.jpg",
+        url: "../assets/couch3_full.jpg",
+        thumbnailUrl: "../assets/couch3_thumb.jpg",
       },
     ],
     categoryId: 1,
@@ -134,8 +134,8 @@ const data = [
     title: "Brown leather shoes",
     images: [
       {
-        url: "http://192.168.170.79:9000/assets/shoes2_full.jpg",
-        thumbnailUrl: "http://192.168.170.79:9000/assets/shoes2_thumb.jpg",
+        url: "../assets/shoes2_full.jpg",
+        thumbnailUrl: "../assets/shoes2_thumb.jpg",
       },
     ],
     categoryId: 5,

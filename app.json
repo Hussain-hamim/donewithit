@@ -20,11 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./app/assets/adaptive-icon.png", // Ensure this file exists
+        "foregroundImage": "./app/assets/icon.png", // Ensure this file exists
         "backgroundColor": "#ffffff"
       },
       "package": "com.hussain.donewithit"
     },
+
     "web": {
       "favicon": "./app/assets/favicon.png" // Ensure this file exists
     },

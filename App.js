@@ -28,8 +28,8 @@ export default function App() {
       <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
         <StatusBar />
-        {user ? <AppNavigator /> : <AuthNavigator />}
-        {/* <AppNavigator /> */}
+        {/* {user ? <AppNavigator /> : <AuthNavigator />} */}
+        <AppNavigator />
         {/* <ListingsScreen /> */}
       </NavigationContainer>
     </AuthContext.Provider>

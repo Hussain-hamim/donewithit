@@ -5,6 +5,7 @@ import Text from "./Text";
 import colors from "../config/colors";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Image } from "react-native-expo-image-cache";
+// import data from "../api/data";
 
 function Card({ title, subTitle, imageUrl, onPress, thumbnailUrl }) {
   return (
@@ -12,10 +13,12 @@ function Card({ title, subTitle, imageUrl, onPress, thumbnailUrl }) {
       <View style={styles.card}>
         <Image
           style={styles.image}
+          // source={require(imageUrl)}
           uri={imageUrl}
           preview={{ uri: thumbnailUrl }}
           tint="light"
         />
+
         <View style={styles.detailsContainer}>
           <Text style={styles.title} numberOfLines={1}>
             {title}
