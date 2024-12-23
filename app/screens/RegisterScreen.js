@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -14,6 +14,7 @@ import {
 } from "../components/forms";
 import useApi from "../hooks/useApi";
 import ActivityIndicator from "../components/ActivityIndicator";
+import AuthContext from "../auth/context";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -26,35 +27,40 @@ function RegisterScreen() {
   const loginApi = useApi(authApi.login);
   const auth = useAuth();
   const [error, setError] = useState();
+  const { user, setUser } = useContext(AuthContext);
 
-  const handleSubmit = async (userInfo) => {
-    try {
-      const result = await registerApi.request(userInfo);
+  // const handleSubmit = async (userInfo) => {
+  //   try {
+  //     const result = await registerApi.request(userInfo);
 
-      if (!result) {
-        setError("An unexpected error occurred.");
-        console.log("Request failed, no result returned.");
-        return;
-      }
+  //     if (!result) {
+  //       setError("An unexpected error occurred.");
+  //       console.log("Request failed, no result returned.");
+  //       return;
+  //     }
 
-      if (!result.ok) {
-        if (result.data) setError(result.data.error);
-        else {
-          setError("An unexpected error occurred.");
-          // console.log(result);
-        }
-        return;
-      }
+  //     if (!result.ok) {
+  //       if (result.data) setError(result.data.error);
+  //       else {
+  //         setError("An unexpected error occurred.");
+  //         // console.log(result);
+  //       }
+  //       return;
+  //     }
 
-      const { data: authToken } = await loginApi.request(
-        userInfo.email,
-        userInfo.password
-      );
-      auth.logIn(authToken);
-    } catch (error) {
-      setError("An unexpected error occurred.");
-      console.error("Error during registration:", error);
-    }
+  //     const { data: authToken } = await loginApi.request(
+  //       userInfo.email,
+  //       userInfo.password
+  //     );
+  //     auth.logIn(authToken);
+  //   } catch (error) {
+  //     setError("An unexpected error occurred.");
+  //     console.error("Error during registration:", error);
+  //   }
+  // };
+
+  const handleSubmit = ({ name, email, password }) => {
+    setUser({ name: name, email: email, password: password });
   };
 
   return (

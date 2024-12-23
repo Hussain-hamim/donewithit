@@ -14,6 +14,7 @@ import FormImagePicker from "../components/forms/FormImagePicker";
 import listingsApi from "../api/listings";
 import useLocation from "../hooks/useLocation";
 import UploadScreen from "./UploadScreen";
+import useApi from "../hooks/useApi";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -84,23 +85,35 @@ function ListingEditScreen() {
   const location = useLocation();
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const { data, setData } = useApi();
 
-  const handleSubmit = async (listing, { resetForm }) => {
-    setProgress(0);
-    setUploadVisible(true);
-    const result = await listingsApi.addListing(
-      { ...listing, location },
-      (progress) => setProgress(progress)
-    );
+  // const handleSubmit = async (listing, { resetForm }) => {
+  //   setProgress(0);
+  //   setUploadVisible(true);
+  //   const result = await listingsApi.addListing(
+  //     { ...listing, location },
+  //     (progress) => setProgress(progress)
+  //   );
 
-    if (!result.ok) {
-      setUploadVisible(false);
-      return alert("Could not save the listing");
-    }
+  //   if (!result.ok) {
+  //     setUploadVisible(false);
+  //     return alert("Could not save the listing");
+  //   }
 
-    resetForm();
-    setUploadVisible(false);
-    alert("Success!");
+  //   resetForm();
+  //   setUploadVisible(false);
+  //   alert("Success!");
+  // };
+
+  const handleSubmit = (listing) => {
+    console.log(listing);
+    setData({
+      title: listing.title,
+      price: listing.price,
+      description: listing.description,
+      category: listing.category.value,
+      images: listing.images[0].url,
+    });
   };
 
   return (

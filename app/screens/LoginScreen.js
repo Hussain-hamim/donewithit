@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Image, StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -11,6 +11,7 @@ import {
   FormField,
   SubmitButton,
 } from "../components/forms";
+import AuthContext from "../auth/context";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -20,13 +21,18 @@ const validationSchema = Yup.object().shape({
 function LoginScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false);
   const { logIn } = useAuth();
+  const { user, setUser } = useContext(AuthContext);
 
-  const handleSubmit = async ({ email, password }) => {
-    const result = await authApi.login(email, password);
-    if (!result.ok) return setLoginFailed(true);
+  // const handleSubmit = async ({ email, password }) => {
+  //   const result = await authApi.login(email, password);
+  //   if (!result.ok) return setLoginFailed(true);
 
-    setLoginFailed(false);
-    logIn(result.data);
+  //   setLoginFailed(false);
+  //   logIn(result.data);
+  // };
+
+  const handleSubmit = ({ email, password }) => {
+    setUser({ email: email, password: password });
   };
 
   return (

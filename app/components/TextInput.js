@@ -8,7 +8,7 @@ function AppTextInput({ icon, width = "100%", ...otherProps }) {
   return (
     <View style={[styles.container, { width }]}>
       {icon && (
-        <View style={styles.one}>
+        <View style={{ justifyContent: "center" }}>
           <MaterialCommunityIcons
             name={icon}
             size={20}
@@ -19,7 +19,7 @@ function AppTextInput({ icon, width = "100%", ...otherProps }) {
       )}
       <TextInput
         placeholderTextColor={defaultStyles.colors.medium}
-        style={defaultStyles.text}
+        style={[defaultStyles.text, styles.input]}
         {...otherProps}
       />
     </View>
@@ -31,16 +31,14 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    padding: 8,
+    padding: 15,
     marginVertical: 10,
   },
   icon: {
     marginRight: 10,
-    marginLeft: 10,
   },
-  one: {
-    alignItems: "center",
-    justifyContent: "center",
+  input: {
+    width: "100%",
   },
 });
 

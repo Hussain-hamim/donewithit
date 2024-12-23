@@ -52,7 +52,8 @@ function ImageInput({ imageUri, onChangeImage }) {
             size={40}
           />
         )}
-        {imageUri && <Image source={imageUri} style={styles.image} />}
+        {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
+        {/* <Image source={require("../assets/chair.jpg")} style={styles.image} /> */}
       </View>
     </TouchableWithoutFeedback>
   );

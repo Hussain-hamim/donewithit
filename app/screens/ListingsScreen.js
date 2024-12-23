@@ -32,14 +32,14 @@ function ListingsScreen({ navigation }) {
 
   return (
     <>
-      <ActivityIndicator visible={getListingsApi.loading} />
+      {/* <ActivityIndicator visible={getListingsApi.loading} /> */}
       <Screen style={styles.screen}>
-        {getListingsApi.error && (
+        {/* {getListingsApi.error && (
           <>
             <AppText>Couldn't retrieve the listings.</AppText>
             <Button title="Retry" onPress={getListingsApi.request} />
           </>
-        )}
+        )} */}
         <FlatList
           refreshing={refresh}
           onRefresh={handleRefresh}
