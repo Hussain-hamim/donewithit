@@ -15,6 +15,7 @@ import {
 import useApi from "../hooks/useApi";
 import ActivityIndicator from "../components/ActivityIndicator";
 import AuthContext from "../auth/context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -61,6 +62,10 @@ function RegisterScreen() {
 
   const handleSubmit = ({ name, email, password }) => {
     setUser({ name: name, email: email, password: password });
+    AsyncStorage.setItem(
+      "user",
+      JSON.stringify({ name: name, email: email, password: password })
+    );
   };
 
   return (

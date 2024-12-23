@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Image, StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -12,6 +12,7 @@ import {
   SubmitButton,
 } from "../components/forms";
 import AuthContext from "../auth/context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -33,6 +34,10 @@ function LoginScreen(props) {
 
   const handleSubmit = ({ email, password }) => {
     setUser({ email: email, password: password });
+    AsyncStorage.setItem(
+      "user",
+      JSON.stringify({ email: email, password: password })
+    );
   };
 
   return (
