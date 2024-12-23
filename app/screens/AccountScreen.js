@@ -35,7 +35,7 @@ function AccountScreen({ navigation }) {
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title={user.name}
+          title={user.name ? user.name : "Hussain"}
           subTitle={user.email}
           image={require("../assets/hamim.jpg")}
         />

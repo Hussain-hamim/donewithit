@@ -11,9 +11,9 @@ import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
 
 export default function App() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState();
 
-  console.log(user);
+  console.log("user: ", user);
 
   // const restoreUser = async () => {
   //   const user = await authStorage.getUser();
