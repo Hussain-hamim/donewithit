@@ -4,8 +4,8 @@ const data = [
     title: "Red jacket",
     images: [
       {
-        url: "../assets/jacket1_full.jpg",
-        thumbnailUrl: "../assets/jacket1_thumb.jpg",
+        url: require("../assets/jacket1_full.jpg"),
+        thumbnailUrl: require("../assets/jacket1_thumb.jpg"),
       },
     ],
     price: 100,
@@ -21,8 +21,8 @@ const data = [
     title: "Gray couch in a great condition",
     images: [
       {
-        url: "../assets/couch2_full.jpg",
-        thumbnailUrl: "../assets/couch2_thumb.jpg",
+        url: require("../assets/couch2_full.jpg"),
+        thumbnailUrl: require("../assets/couch2_thumb.jpg"),
       },
     ],
     categoryId: 1,
@@ -40,16 +40,16 @@ const data = [
       "I'm selling my furniture at a discount price. Pick up at Venice. DM me asap.",
     images: [
       {
-        url: "../assets/couch1_full.jpg",
-        thumbnailUrl: "../assets/couch1_thumb.jpg",
+        url: require("../assets/couch1_full.jpg"),
+        thumbnailUrl: require("../assets/couch1_thumb.jpg"),
       },
       {
-        url: "../assets/couch2_full.jpg",
-        thumbnailUrl: "../assets/couch2_thumb.jpg",
+        url: require("../assets/couch2_full.jpg"),
+        thumbnailUrl: require("../assets/couch2_thumb.jpg"),
       },
       {
-        url: "../assets/couch3_full.jpg",
-        thumbnailUrl: "../assets/couch3_thumb.jpg",
+        url: require("../assets/couch3_full.jpg"),
+        thumbnailUrl: require("../assets/couch3_thumb.jpg"),
       },
     ],
     price: 1000,
@@ -65,8 +65,8 @@ const data = [
     title: "Designer wear shoes",
     images: [
       {
-        url: "../assets/shoes1_full.jpg",
-        thumbnailUrl: "../assets/shoes1_thumb.jpg",
+        url: require("../assets/shoes1_full.jpg"),
+        thumbnailUrl: require("../assets/shoes1_thumb.jpg"),
       },
     ],
     categoryId: 5,
@@ -82,8 +82,8 @@ const data = [
     title: "Canon 400D (Great Condition)",
     images: [
       {
-        url: "../assets/camera1_full.jpg",
-        thumbnailUrl: "../assets/camera1_thumb.jpg",
+        url: require("../assets/camera1_full.jpg"),
+        thumbnailUrl: require("../assets/camera1_thumb.jpg"),
       },
     ],
     price: 300,
@@ -99,8 +99,8 @@ const data = [
     title: "Nikon D850 for sale",
     images: [
       {
-        url: "../assets/camera2_full.jpg",
-        thumbnailUrl: "../assets/camera2_thumb.jpg",
+        url: require("../assets/camera2_full.jpg"),
+        thumbnailUrl: require("../assets/camera2_thumb.jpg"),
       },
     ],
     price: 350,
@@ -117,8 +117,8 @@ const data = [
     description: "No rips no stains no odors",
     images: [
       {
-        url: "../assets/couch3_full.jpg",
-        thumbnailUrl: "../assets/couch3_thumb.jpg",
+        url: require("../assets/couch3_full.jpg"),
+        thumbnailUrl: require("../assets/couch3_thumb.jpg"),
       },
     ],
     categoryId: 1,
@@ -134,8 +134,8 @@ const data = [
     title: "Brown leather shoes",
     images: [
       {
-        url: "../assets/shoes2_full.jpg",
-        thumbnailUrl: "../assets/shoes2_thumb.jpg",
+        url: require("../assets/shoes2_full.jpg"),
+        thumbnailUrl: require("../assets/shoes2_thumb.jpg"),
       },
     ],
     categoryId: 5,

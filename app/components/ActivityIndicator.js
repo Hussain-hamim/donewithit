@@ -11,7 +11,7 @@ function ActivityIndicator1({ visible = false }) {
       {/* <LottieView
         autoPlay
         loop
-        source={require("../assets/animations/loader.json")}
+        source={require(require("/animations/loader.json")}
       /> */}
       <ActivityIndicator size="large" color={colors.primary} />
     </View>

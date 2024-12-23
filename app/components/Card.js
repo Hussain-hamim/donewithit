@@ -1,10 +1,10 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
 import Text from "./Text";
 import colors from "../config/colors";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Image } from "react-native-expo-image-cache";
+// import { Image } from "react-native-expo-image-cache";
 // import data from "../api/data";
 
 function Card({ title, subTitle, imageUrl, onPress, thumbnailUrl }) {
@@ -13,11 +13,13 @@ function Card({ title, subTitle, imageUrl, onPress, thumbnailUrl }) {
       <View style={styles.card}>
         <Image
           style={styles.image}
-          // source={require(imageUrl)}
           source={imageUrl}
-          preview={{ uri: thumbnailUrl }}
-          tint="light"
+          // uri={require("/computer.jpg"}
+          // preview={{ uri: thumbnailUrl }}
+          // tint="light"
         />
+
+        {/* <Image source={require(require("/chair.jpg")} /> */}
 
         <View style={styles.detailsContainer}>
           <Text style={styles.title} numberOfLines={1}>

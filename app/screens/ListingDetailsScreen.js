@@ -5,8 +5,9 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Image,
 } from "react-native";
-import { Image } from "react-native-expo-image-cache";
+// import { Image } from "react-native-expo-image-cache";
 
 import colors from "../config/colors";
 import ContactSellerForm from "../components/ContactSellerForm";
@@ -24,9 +25,10 @@ function ListingDetailsScreen({ route }) {
       > */}
       <Image
         style={styles.image}
-        preview={{ uri: listing.images[0].thumbnailUrl }}
-        tint="light"
-        uri={listing.images[0].url}
+        // preview={{ uri: listing.images[0].thumbnailUrl }}
+        // tint="light"
+        // uri={listing.images[0].url}
+        source={listing.images[0].url}
       />
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{listing.title}</Text>
