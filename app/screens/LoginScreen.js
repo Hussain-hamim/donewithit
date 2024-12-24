@@ -23,6 +23,9 @@ function LoginScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false);
   const { logIn } = useAuth();
   const { user, setUser } = useContext(AuthContext);
+  const [lastUser, setlastUser] = useState({});
+
+  // console.log(user);
 
   // const handleSubmit = async ({ email, password }) => {
   //   const result = await authApi.login(email, password);
@@ -32,12 +35,26 @@ function LoginScreen(props) {
   //   logIn(result.data);
   // };
 
+  useEffect(() => {
+    const getUser = async () => {
+      const value = await AsyncStorage.getItem("user");
+      const user = JSON.parse(value);
+      setlastUser({ email: user.email, password: user.password });
+    };
+
+    getUser();
+  }, []);
+
   const handleSubmit = ({ email, password }) => {
-    setUser({ email: email, password: password });
-    AsyncStorage.setItem(
-      "user",
-      JSON.stringify({ email: email, password: password })
-    );
+    if (true) {
+      setUser({ email: email, password: password });
+      AsyncStorage.setItem(
+        "user",
+        JSON.stringify({ email: email, password: password })
+      );
+    } else {
+      setLoginFailed(true);
+    }
   };
 
   return (
