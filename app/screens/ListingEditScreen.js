@@ -106,7 +106,7 @@ function ListingEditScreen() {
   // };
 
   const handleSubmit = (listing) => {
-    console.log(listing);
+    // console.log(listing);
     setData({
       title: listing.title,
       price: listing.price,

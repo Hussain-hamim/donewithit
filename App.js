@@ -46,8 +46,6 @@ export default function App() {
     prepareApp();
   }, []);
 
-  /** TODO: use splashScreen after saving data in asyncStorage */
-
   if (!me) {
     return null;
   }

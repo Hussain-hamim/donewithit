@@ -13,10 +13,11 @@ import useApi from "../hooks/useApi";
 import { Image } from "react-native-expo-image-cache";
 
 function ListingsScreen({ navigation }) {
-  const getListingsApi = useApi(listingsApi.getListings);
+  // const { data } = useApi(listingsApi.getListings);
   const [refresh, setRefresh] = useState(false);
+  const { data } = useApi();
 
-  // console.log(listingsApi.data);
+  console.log(data);
 
   const handleRefresh = () => {
     setRefresh(true);
@@ -43,7 +44,7 @@ function ListingsScreen({ navigation }) {
         <FlatList
           refreshing={refresh}
           onRefresh={handleRefresh}
-          data={getListingsApi.data}
+          data={data}
           keyExtractor={(listing) => listing.id.toString()}
           renderItem={({ item }) => (
             <Card
