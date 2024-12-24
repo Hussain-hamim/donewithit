@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Alert, Keyboard } from "react-native";
 import * as Notifications from "expo-notifications";
 import * as Yup from "yup";
@@ -10,19 +10,34 @@ function ContactSellerForm({ listing }) {
   const handleSubmit = async ({ message }, { resetForm }) => {
     Keyboard.dismiss();
 
-    const result = await messagesApi.send(message, listing.id);
+    // const result = await messagesApi.send(message, listing.id);
 
-    if (!result.ok) {
-      console.log("Error", result);
-      return Alert.alert("Error", "Could not send the message to the seller.");
-    }
+    // if (!result.ok) {
+    //   console.log("Error", result);
+    //   return Alert.alert("Error", "Could not send the message to the seller.");
+    // }
+
+    Alert.alert(
+      "Info",
+      "Your message was sent, we will contact you as soon as possible."
+    );
 
     resetForm();
 
-    Notifications.scheduleNotificationAsync({
-      title: "Awesome!",
-      body: "Your message was sent to the seller.",
-    });
+    // await Notifications.scheduleNotificationAsync({
+    //   // title: "Awesome!",
+    //   // body: "Your message was sent to the seller.",
+
+    //   content: {
+    //     title: "Awesome!",
+    //     body: "Your message was sent to the seller.",
+    //   },
+    //   trigger: {
+    //     type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+    //     seconds: 5,
+    //     repeats: false,
+    //   },
+    // });
   };
 
   return (
