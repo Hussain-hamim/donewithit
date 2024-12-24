@@ -11,6 +11,8 @@ import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SplashScreen from "expo-splash-screen";
+import { Image, StyleSheet, Text, View } from "react-native";
+import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -60,15 +62,58 @@ export default function App() {
   // }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    // <AuthContext.Provider value={{ user, setUser }}>
+    //   <StatusBar />
+    //   <OfflineNotice />
+    //   <NavigationContainer theme={navigationTheme}>
+    //     {user ? <AppNavigator /> : <AuthNavigator />}
+    //   </NavigationContainer>
+    // </AuthContext.Provider>
+    <>
       <StatusBar />
-      <OfflineNotice />
-      <NavigationContainer theme={navigationTheme}>
-        <StatusBar />
-        {user ? <AppNavigator /> : <AuthNavigator />}
-        {/* <AppNavigator /> */}
-        {/* <ListingsScreen /> */}
-      </NavigationContainer>
-    </AuthContext.Provider>
+      <App2 />
+    </>
   );
 }
+
+const App2 = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require("./app/assets/camera1_full.jpg")}
+        style={{ width: "100%", height: 200 }}
+        resizeMode="stretch"
+      />
+
+      <Image
+        style={{
+          width: 150,
+          height: 150,
+          borderRadius: 150,
+          borderWidth: 5,
+          borderColor: "white",
+          marginTop: -75,
+        }}
+        source={require("./app/assets/hamim.jpg")}
+      />
+
+      <Text style={{ fontSize: 30, fontWeight: "bold" }}>Hussain Hamim</Text>
+      <Text>Founder of this application</Text>
+
+      <View style={{ flexDirection: "row", marginVertical: 10, gap: 10 }}>
+        <FontAwesome6 name="github" size={24} color="black" />
+        <FontAwesome6 name="x-twitter" size={24} color="black" />
+        <FontAwesome6 name="at" size={24} color="black" />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+    alignItems: "center",
+    // justifyContent: "center",
+  },
+});
