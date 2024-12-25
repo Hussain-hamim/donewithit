@@ -83,7 +83,7 @@ export default function App() {
     //   </NavigationContainer>
     // </AuthContext.Provider>
     <>
-      {/* <StatusBar style="auto" /> */}
+      <StatusBar style="light" />
       <App2 />
     </>
   );

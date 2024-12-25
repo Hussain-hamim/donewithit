@@ -11,7 +11,7 @@ export default function ProjectCard({ name, image }) {
 
 const styles = StyleSheet.create({
   image: {
-    width: "100%",
+    width: "200",
     height: 200,
     borderRadius: 10,
   },

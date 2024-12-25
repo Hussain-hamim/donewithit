@@ -91,12 +91,12 @@ export default function App2() {
                 image={require("./app/assets/chair.jpg")}
               />
               <ProjectCard
-                name="Trello"
-                image={require("./app/assets/hamim.jpg")}
-              />
-              <ProjectCard
                 name="Flappy bird"
                 image={require("./app/assets/jacket.jpg")}
+              />
+              <ProjectCard
+                name="Trello"
+                image={require("./app/assets/hamim.jpg")}
               />
               <ProjectCard
                 name="Todo app"
