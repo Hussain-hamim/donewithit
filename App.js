@@ -75,16 +75,16 @@ export default function App() {
   // }, []);
 
   return (
-    // <AuthContext.Provider value={{ user, setUser }}>
-    //   <StatusBar />
-    //   <OfflineNotice />
-    //   <NavigationContainer theme={navigationTheme}>
-    //     {user ? <AppNavigator /> : <AuthNavigator />}
-    //   </NavigationContainer>
-    // </AuthContext.Provider>
-    <>
-      <StatusBar style="light" />
-      <App2 />
-    </>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <StatusBar />
+      <OfflineNotice />
+      <NavigationContainer theme={navigationTheme}>
+        {user ? <AppNavigator /> : <AuthNavigator />}
+      </NavigationContainer>
+    </AuthContext.Provider>
+    // <>
+    //   <StatusBar style="light" />
+    //   <App />
+    // </>
   );
 }
